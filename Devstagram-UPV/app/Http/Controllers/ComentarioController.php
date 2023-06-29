@@ -7,11 +7,9 @@ use App\Models\User;
 use App\Models\Comentario;
 use Illuminate\Http\Request;
 
-class ComentarioController extends Controller
-{
+class ComentarioController extends Controller {
     // Definimos el metodo store
-    public function store(Request $request, User $user, Post $post)
-    {
+    public function store(Request $request, User $user, Post $post) {
         // Validamos los datos del formulario
         $this->validate($request, [
             'comentario' => 'required|max:255'
@@ -30,8 +28,7 @@ class ComentarioController extends Controller
     }
 
     // Definimos el metodo destroy
-    public function destroy(User $user, Post $post, Comentario $comentario)
-    {
+    public function destroy(User $user, Post $post, Comentario $comentario) {
         //dd($comentario);
         // Eliminamos el comentario
         $comentario->delete();

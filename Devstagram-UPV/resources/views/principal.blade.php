@@ -5,6 +5,6 @@
 @endsection
 
 @section('contenido')
-    Contenido de la pagina principal
+    <p class="text-center text-2xl">Contenido de la página principal</p>
 @endsection
 

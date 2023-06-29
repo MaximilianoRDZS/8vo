@@ -1,12 +1,14 @@
 <?php
 
-use App\Http\Controllers\ComentarioController;
-use App\Http\Controllers\ImagenController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\GrupoController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ComentarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,3 +70,19 @@ Route::delete('/posts/{post}',[PostController::class,'destroy'])->name('post.des
 
 //Ruta para eliminar un comentario
 Route::delete('/{user:username}/posts/{post}/comentarios/{comentario}',[ComentarioController::class,'destroy'])->name('comentarios.destroy');
+
+
+
+
+//Ruta para Crear alumnos
+Route::get('/alumnos', [AlumnoController::class, 'index'])->name("alumnos");
+
+// Ruta para enviar datos al servidor 
+Route::post('/alumnos', [AlumnoController::class, 'store']);
+
+// Ruta para Crear grupos
+Route::get('/grupos', [GrupoController::class, 'index'])->name("grupos");
+
+// Ruta para enviar datos al servidor 
+Route::post('/grupos', [GrupoController::class, 'store']);
+
