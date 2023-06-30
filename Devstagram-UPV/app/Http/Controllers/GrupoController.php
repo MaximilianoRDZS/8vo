@@ -5,24 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\Grupo;
 use Illuminate\Http\Request;
 
-class GrupoController extends Controller {
-    
-    //Aqui se van a mostrar todos los grupos
-    public function index(){
-
+class GrupoController extends Controller
+{
+    //mostramos los grupos
+    public function index() {
+        //Obtenemos los grupos de la BD
         $grupos = Grupo::all();
         return view('grupos', ['grupos' => $grupos]);
     }
 
-    //Aqui se van a guardar los grupos
+    //metodo para guardar los grupos
     public function store(Request $request) {
-
-        //Se validan los datos del grupo
+        //Validamos los datos
         $request->validate([
             'grupo' => 'required'
         ]);
 
-        //Guardamos los datos en la Base de Datos de grupos
+        //Guardamos los datos en la BD
         Grupo::create([
             'grupo' => $request->grupo
         ]);
@@ -30,4 +29,5 @@ class GrupoController extends Controller {
         //Redireccionamos a la vista de grupos
         return redirect()->route('grupos');
     }
+
 }

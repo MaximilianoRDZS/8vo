@@ -26,11 +26,23 @@ Route::get('/', function () {
     return view('principal');
 });
 
+//Ruta para crear alumnos
+Route::get('/alumnos', [AlumnoController::class, 'index'])->name("alumnos");
+
+// Ruta para enviar datos al servidor 
+Route::post('/alumnos', [AlumnoController::class, 'store']);
+
+//Ruta para crear grupos
+Route::get('/grupos', [GrupoController::class, 'index'])->name("grupos");
+
+// Ruta para enviar datos al servidor 
+Route::post('/grupos', [GrupoController::class, 'store']);
+
 // Crear ruta para alumnos
-Route::view('/alumnos', 'alumnos');
+//Route::view('/alumnos', 'alumnos');
 
 // Crear ruta para cv
-Route::view('/cv', 'cv');
+//Route::view('/cv', 'cv');
 
 // Ruta para registro de usuarios
 Route::get('/register', [RegisterController::class, 'index'])->name("register");
@@ -70,19 +82,3 @@ Route::delete('/posts/{post}',[PostController::class,'destroy'])->name('post.des
 
 //Ruta para eliminar un comentario
 Route::delete('/{user:username}/posts/{post}/comentarios/{comentario}',[ComentarioController::class,'destroy'])->name('comentarios.destroy');
-
-
-
-
-//Ruta para Crear alumnos
-Route::get('/alumnos', [AlumnoController::class, 'index'])->name("alumnos");
-
-// Ruta para enviar datos al servidor 
-Route::post('/alumnos', [AlumnoController::class, 'store']);
-
-// Ruta para Crear grupos
-Route::get('/grupos', [GrupoController::class, 'index'])->name("grupos");
-
-// Ruta para enviar datos al servidor 
-Route::post('/grupos', [GrupoController::class, 'store']);
-

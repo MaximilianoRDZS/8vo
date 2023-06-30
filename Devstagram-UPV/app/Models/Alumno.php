@@ -12,8 +12,8 @@ class Alumno extends Model {
     //se protegen los datos para guardarlos en la base de datos
     protected $fillable = [
         'nombre', 
-        'apellidos',  
-        'fecha_de_nacimiento', 
+        'apellido',  
+        'fecha_nacimiento', 
         'grupo_id'
     ];
 

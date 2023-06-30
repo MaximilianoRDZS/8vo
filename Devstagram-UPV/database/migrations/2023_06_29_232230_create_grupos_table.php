@@ -9,8 +9,8 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
+    public function up(): void {
+        //Se crea la tabla de grupos
         Schema::create('grupos', function (Blueprint $table) {
             $table->id();
             $table->string('grupo');
@@ -21,8 +21,7 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
-    {
+    public function down(): void {
         Schema::dropIfExists('grupos');
     }
 };

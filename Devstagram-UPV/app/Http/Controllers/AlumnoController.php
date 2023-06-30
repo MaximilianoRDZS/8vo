@@ -17,11 +17,12 @@ class AlumnoController extends Controller {
 
     //Se guardan los alumnos
     public function store(Request $request) {
+
         //Se validan los datos del alumno
         $request->validate([
             'nombre' => 'required',
             'apellido' => 'required',
-            'fecha_de_nacimiento' => 'required',
+            'fecha_nacimiento' => 'required',
             'grupo_id' => 'required'
         ]);
 
@@ -29,8 +30,8 @@ class AlumnoController extends Controller {
         Alumno::create([
             'nombre' => $request->nombre,
             'apellido' => $request->apellido,
-            'fecha_de_nacimiento' => $request->fecha_de_nacimiento,
-            'grupo' => $request->grupo_id
+            'fecha_nacimiento' => $request->fecha_nacimiento,
+            'grupo_id' => $request->grupo_id
         ]);
 
         //Redireccionamos a la vista de alumnos

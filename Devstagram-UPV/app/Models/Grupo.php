@@ -6,17 +6,19 @@ use App\Models\Alumno;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Grupo extends Model{
-
+class Grupo extends Model
+{
     use HasFactory;
 
-    //Se protege los datos para guardarlos en la base de datos
-    protected $fillable = ['grupo'];
+    //Protegemos la información para guardarla en la BD
+    protected $fillable=[
+        'grupo'
+    ];
 
-    //Se crea un metodo para la relacion de uno a muchos
-    public function grupos(){
-        
-        //Se crea la relacion de uno a muchos
+    //Crear un método para la relación
+    public function grupos()
+    {
+        //Un grupo tiene muchos alumnos (1:N)
         return $this->hasMany(Alumno::class);
     }
 }
